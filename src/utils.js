@@ -236,4 +236,16 @@ export function calculateNearestFutureTime(anchorDate, intervalMs, now) {
 
     return new Date(anchorTime + finalN * intervalMs);
 }
-
+/**
+ * 타임스탬프를 HH:MM:SS 형식의 문자열로 변환합니다.
+ * @param {number} timestamp - 변환할 타임스탬프 (ms)
+ * @returns {string} - "14:30:05" 형식의 문자열
+ */
+export function formatToTimestamp(timestamp) {
+    if (!timestamp) return '';
+    const date = new Date(timestamp);
+    const h = String(date.getHours()).padStart(2, '0');
+    const m = String(date.getMinutes()).padStart(2, '0');
+    const s = String(date.getSeconds()).padStart(2, '0');
+    return `${h}:${m}:${s}`;
+}
